@@ -35,7 +35,7 @@ public class Painting {
 	@Column(name = "IdPainting", updatable = false)
 	private long id;
 
-	@Column(name = "AuthorPainting", nullable = false)
+	@Column(name = "AuthorPainting")
 	private String authorName;
 
 	@Column(name = "PricePainting", nullable = false)
