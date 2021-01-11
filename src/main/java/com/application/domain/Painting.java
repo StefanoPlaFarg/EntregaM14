@@ -45,9 +45,10 @@ public class Painting {
 	private double price;
 
 	@Column(name = "registDatePainting", updatable = false, nullable = false)
-	@Temporal(TemporalType.DATE)
-	private Calendar registDate;
-
+	//@Temporal(TemporalType.DATE)
+	//private Calendar registDate;
+	private String registDate;
+	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "IdShop", nullable = false)
 	private Shop shop;
@@ -56,7 +57,7 @@ public class Painting {
 
 	}
 
-	public Painting(String paintingName,String authorName , double price, Calendar registDate) {
+	public Painting(String paintingName,String authorName , double price, String registDate) {
 
 		this.paintingName=paintingName;
 		this.authorName = authorName;
@@ -110,14 +111,14 @@ public class Painting {
 	/**
 	 * @return the registDate
 	 */
-	public Calendar getRegistDate() {
+	public String getRegistDate() {
 		return registDate;
 	}
 
 	/**
 	 * @param registDate the registDate to set
 	 */
-	public void setRegistDate(Calendar registDate) {
+	public void setRegistDate(String registDate) {
 		this.registDate = registDate;
 	}
 
