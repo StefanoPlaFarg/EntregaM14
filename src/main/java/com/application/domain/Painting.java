@@ -34,6 +34,9 @@ public class Painting {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "IdPainting", updatable = false)
 	private long id;
+  
+	@Column(name = "NamePainting", nullable = false)
+	private String paintingName;
 
 	@Column(name = "AuthorPainting")
 	private String authorName;
