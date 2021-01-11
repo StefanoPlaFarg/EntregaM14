@@ -65,6 +65,20 @@ public class Painting {
 	}
 
 	/**
+	 * @return the paintingName
+	 */
+	public String getPaintingName() {
+		return paintingName;
+	}
+
+	/**
+	 * @param paintingName the paintingName to set
+	 */
+	public void setPaintingName(String paintingName) {
+		this.paintingName = paintingName;
+	}
+
+	/**
 	 * @return the authorName
 	 */
 	public String getAuthorName() {
