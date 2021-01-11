@@ -14,5 +14,7 @@ import com.application.domain.*;
 @Repository
 public interface PaintingsRepository extends CrudRepository<Painting,Long> {
 	
+	Painting findById (long id);
+	
 	
 }
