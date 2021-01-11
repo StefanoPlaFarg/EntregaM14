@@ -17,5 +17,6 @@ import com.application.domain.*;
 public interface ShopsRepository extends CrudRepository<Shop,Long>  {
 
 	Shop findByName (String name);
+	Shop findById (long id);
 		
 }
