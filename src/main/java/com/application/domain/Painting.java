@@ -56,8 +56,9 @@ public class Painting {
 
 	}
 
-	public Painting(String authorName, double price, Calendar registDate) {
+	public Painting(String paintingName,String authorName , double price, Calendar registDate) {
 
+		this.paintingName=paintingName;
 		this.authorName = authorName;
 		this.price = price;
 		this.registDate = registDate;
