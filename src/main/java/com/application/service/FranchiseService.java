@@ -246,6 +246,42 @@ public class FranchiseService {
 	 * @param idShop
 	 * @return
 	 */
+	public List<PaintingDTO> getAllPaintingsOfShop(long idShop) {
+
+		Shop shop = shopsRepository.findById(idShop);
+
+		if (shop == null) {
+
+			return null;
+
+		} else {
+
+			List<PaintingDTO> paintingsListOfShop = new ArrayList<PaintingDTO>();
+
+			for (Painting painting : paintingsRepository.findAll()) {
+
+				if (painting.getShop() == shop) {
+
+					paintingsListOfShop.add(mapPainting.mappingEntityToDTO(painting));
+
+				}
+
+			}
+
+			
+
+			return paintingsListOfShop;
+
+		}
+
+	}
+	
+	
+	
+	/**
+	 * @param idShop
+	 * @return
+	 */
 	public String deletePaintingsOfShop(long idShop) {
 
 		Shop shop = shopsRepository.findById(idShop);
