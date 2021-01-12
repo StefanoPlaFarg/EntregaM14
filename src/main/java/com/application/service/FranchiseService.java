@@ -21,79 +21,74 @@ public class FranchiseService {
 
 	@Autowired
 	private PaintingsRepository paintingsRepository;
-	
+
 	@Autowired
 	private ShopsRepository shopsRepository;
-	
+
 	@Autowired
 	private MapShop mapShop;
-	
+
 	@Autowired
 	private MapPainting mapPainting;
-	
-	//Shops
+
+	// Shops
 	public String addShop(ShopDTO shopDTO) {
-        
+
 		Shop shop = mapShop.mappingDTOToEntity(shopDTO);
-		
+
 		shopsRepository.save(shop);
-		
+
 		return "Shop saved";
 
-		
 	}
-	
+
 	public ShopDTO getShopById(long idShop) {
-		
+
 		Shop shop = shopsRepository.findById(idShop);
 		ShopDTO shopDTO = mapShop.mappingEntityToDTO(shop);
-		
-		return shopDTO;		
-		
+
+		return shopDTO;
+
 	}
-	
-	public String updateShop (long idShop, ShopDTO shopDTO) {
-		
+
+	public String updateShop(long idShop, ShopDTO shopDTO) {
+
 		Shop shopToUpdate = shopsRepository.findById(idShop);
-		
-        if (shopToUpdate==null) {
-			
-			return "The shop with id: " + idShop +  " doesn't exist";
+
+		if (shopToUpdate == null) {
+
+			return "The shop with id: " + idShop + " doesn't exist";
 		}
-		
+
 		else {
-			
-						
-			Shop shopUpdated = mapShop.mappingDTOToEntity(shopDTO );
-			
+
+			Shop shopUpdated = mapShop.mappingDTOToEntity(shopDTO);
+
 			shopToUpdate.setName(shopUpdated.getName());
 			shopToUpdate.setCapacity(shopUpdated.getCapacity());
-			
+
 			return "Shop updated";
 		}
-		
-		
-		
+
 	}
-	
 
 	public String deleteShop(long idShop) {
-		
+
 		Shop shop = shopsRepository.findById(idShop);
-		
-		if (shop==null) {
-			
-			return "The shop with id: " + idShop +  " doesn't exist";
+
+		if (shop == null) {
+
+			return "The shop with id: " + idShop + " doesn't exist";
 		}
-		
+
 		else {
-			
+
 			deletePaintingsOfShop(idShop);
 			shopsRepository.deleteById(idShop);
-			
+
 			return "Shop deleted";
 		}
-		
+
 	}
 
 	/**
@@ -119,34 +114,33 @@ public class FranchiseService {
 		return listShopsDTO;
 	}
 
-
 	public String deleteAllShops() {
 		shopsRepository.deleteAll();
 		paintingsRepository.deleteAll();
-		
+
 		return "Shops and paintings deleted";
 
 	}
-	
+
 	// Paintings
 	public String addPainting(long idShop, PaintingDTO paintingDTO) {
 
 		Shop shop = shopsRepository.findById(idShop);
-		
+
 		if (shop == null) {
-			
+
 			return "The shop with id: " + idShop + "doesn't exist and it wasn't possible to add the painting";
-			
-		}else {
+
+		} else {
 			Painting painting = mapPainting.mappingDTOToEntity(paintingDTO);
 			painting.setShop(shop);
 			paintingsRepository.save(painting);
-			
+
 			return "Painting has been saved";
 		}
 
 	}
-	
+
 	public String updatePainting(long idShop, long idPainting, PaintingDTO paintingDTO) {
 
 		Shop shop = shopsRepository.findById(idShop);
@@ -175,8 +169,6 @@ public class FranchiseService {
 		}
 
 	}
-	
-	
 
 	public PaintingDTO getPaintingById(long idShop, long idPainting) {
 
@@ -202,7 +194,7 @@ public class FranchiseService {
 		}
 
 	}
-	
+
 	public String deletePainting(long idShop, long idPainting) {
 
 		Shop shop = shopsRepository.findById(idShop);
@@ -221,7 +213,6 @@ public class FranchiseService {
 
 			} else {
 
-				
 				paintingsRepository.deleteById(idPainting);
 
 				return "Painting deleted";
@@ -251,6 +242,10 @@ public class FranchiseService {
 
 	}
 
+	/**
+	 * @param idShop
+	 * @return
+	 */
 	public String deletePaintingsOfShop(long idShop) {
 
 		Shop shop = shopsRepository.findById(idShop);
@@ -280,18 +275,13 @@ public class FranchiseService {
 		}
 
 	}
-    
-    
 
 	public String deleteAllPaintings() {
-		
+
 		paintingsRepository.deleteAll();
-		
+
 		return "All paintings have been deleted";
 
 	}
-	
-	
-	    
-	
+
 }
