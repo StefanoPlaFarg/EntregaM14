@@ -223,25 +223,7 @@ public class FranchiseService {
 
 	}
 
-	public List<PaintingDTO> getAllPaintings() {
-
-		List<Painting> listPaintings = (List<Painting>) paintingsRepository.findAll();
-		List<PaintingDTO> listPaintingsDTO = new ArrayList<PaintingDTO>();
-
-		if (!listPaintings.isEmpty()) {
-
-			for (Painting painting : listPaintings) {
-
-				listPaintingsDTO.add(mapPainting.mappingEntityToDTO(painting));
-
-			}
-
-		}
-
-		return listPaintingsDTO;
-
-	}
-
+	
 	/**
 	 * @param idShop
 	 * @return
@@ -312,6 +294,26 @@ public class FranchiseService {
 
 	}
 
+	public List<PaintingDTO> getAllPaintings() {
+
+		List<Painting> listPaintings = (List<Painting>) paintingsRepository.findAll();
+		List<PaintingDTO> listPaintingsDTO = new ArrayList<PaintingDTO>();
+
+		if (!listPaintings.isEmpty()) {
+
+			for (Painting painting : listPaintings) {
+
+				listPaintingsDTO.add(mapPainting.mappingEntityToDTO(painting));
+
+			}
+
+		}
+
+		return listPaintingsDTO;
+
+	}
+
+	
 	public String deleteAllPaintings() {
 
 		paintingsRepository.deleteAll();
