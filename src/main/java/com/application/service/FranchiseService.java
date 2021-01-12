@@ -135,7 +135,7 @@ public class FranchiseService {
 		
 		if (shop == null) {
 			
-			return "The shop with" + idShop + "doesn't exist and it wasn't possible to add the painting";
+			return "The shop with id: " + idShop + "doesn't exist and it wasn't possible to add the painting";
 			
 		}else {
 			Painting painting = mapPainting.mappingDTOToEntity(paintingDTO);
@@ -153,14 +153,14 @@ public class FranchiseService {
 
 		if (shop == null) {
 
-			return "The shop with" + idShop + "doesn't exist and it wasn't possible to update the painting";
+			return "The shop with id: " + idShop + "doesn't exist and it wasn't possible to update the painting";
 
 		} else {
 
 			Painting paintingToUpdate = paintingsRepository.findById(idPainting);
 
 			if (paintingToUpdate == null) {
-				return "The painting with" + idPainting + "doesn't exist and it wasn't possible to update it";
+				return "The painting with id:" + idPainting + "doesn't exist and it wasn't possible to update it";
 
 			} else {
 
@@ -209,7 +209,7 @@ public class FranchiseService {
 
 		if (shop == null) {
 
-			return "The shop with" + idShop + "doesn't exist and it wasn't possible to delete the painting";
+			return "The shop with id: " + idShop + "doesn't exist and it wasn't possible to delete the painting";
 
 		} else {
 
@@ -217,7 +217,7 @@ public class FranchiseService {
 
 			if (painting == null) {
 
-				return "The painting with" + idPainting + "doesn't exist and it wasn't possible to delete it";
+				return "The painting with id: " + idPainting + "doesn't exist and it wasn't possible to delete it";
 
 			} else {
 
@@ -251,36 +251,43 @@ public class FranchiseService {
 
 	}
 
-    public String deletePaintingsOfShop(long idShop) {
-		
-    	Shop shop = shopsRepository.findById(idShop);
+	public String deletePaintingsOfShop(long idShop) {
+
+		Shop shop = shopsRepository.findById(idShop);
 
 		if (shop == null) {
 
-			return "The shop with" + idShop + "doesn't exist and it wasn't possible to delete all their paintings";
+			return "The shop with id: " + idShop + "doesn't exist and it wasn't possible to delete all their paintings";
 
 		} else {
 
-			for (Painting painting: paintingsRepository.findAll()) {
-				
-				if (painting.getShop()== shop) {
-					
-					paintingsRepository.delete(painting);
-					
+			List<Painting> paintingsListToBeRemoved = new ArrayList<Painting>();
+
+			for (Painting painting : paintingsRepository.findAll()) {
+
+				if (painting.getShop() == shop) {
+
+					paintingsListToBeRemoved.add(painting);
+
 				}
-				
-				
+
 			}
-			return "All paintings of the shop with" + idShop + "have been deleted";
-			
+
+			paintingsRepository.deleteAll(paintingsListToBeRemoved);
+
+			return "All paintings of the shop with id: " + idShop + "have been deleted";
+
 		}
-  
 
 	}
+    
+    
 
-	public void deleteAllPaintings() {
+	public String deleteAllPaintings() {
 		
 		paintingsRepository.deleteAll();
+		
+		return "All paintings have been deleted";
 
 	}
 	
