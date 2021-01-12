@@ -83,7 +83,7 @@ public class FranchiseService {
 
 		else {
 
-			deletePaintingsOfShop(idShop);
+			deleteAllPaintingsOfShop(idShop);
 			shopsRepository.deleteById(idShop);
 
 			return "Shop deleted";
@@ -282,7 +282,7 @@ public class FranchiseService {
 	 * @param idShop
 	 * @return
 	 */
-	public String deletePaintingsOfShop(long idShop) {
+	public String deleteAllPaintingsOfShop(long idShop) {
 
 		Shop shop = shopsRepository.findById(idShop);
 
