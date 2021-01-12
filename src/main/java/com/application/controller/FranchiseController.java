@@ -149,20 +149,22 @@ public class FranchiseController {
 	
 	
 	
-	// http://localhost:8080/api/GET/shops/paintings (GET) -> GET all Paintings of Franchise
-		@RequestMapping(path = "GET/shops/paintings", method = RequestMethod.GET, produces = "application/json")
-		@ResponseBody
-		public List<PaintingDTO> getAllPaintings() {
-			return franchiseService.getAllPaintings();
+	// http://localhost:8080/api/GET/shops/paintings (GET) -> GET all Paintings of
+	// Franchise
+	@RequestMapping(path = "GET/shops/paintings", method = RequestMethod.GET, produces = "application/json")
+	@ResponseBody
+	public List<PaintingDTO> getAllPaintings() {
+		return franchiseService.getAllPaintings();
 
-		}
+	}
 
-		// http://localhost:8080/api/DELETE/shops/paintings (DELETE) -> DELETE all Paintings of Franchise
-		@RequestMapping(path = "DELETE/shops/paintings", method = RequestMethod.DELETE, produces = "application/json")
-		@ResponseBody
-		public String deleteAllPaintings() {
-			return franchiseService.deleteAllPaintings();
+	// http://localhost:8080/api/DELETE/shops/paintings (DELETE) -> DELETE all
+	// Paintings of Franchise
+	@RequestMapping(path = "DELETE/shops/paintings", method = RequestMethod.DELETE, produces = "application/json")
+	@ResponseBody
+	public String deleteAllPaintings() {
+		return franchiseService.deleteAllPaintings();
 
-		}
+	}
 
 }
