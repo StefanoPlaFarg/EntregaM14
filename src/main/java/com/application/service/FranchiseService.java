@@ -132,11 +132,23 @@ public class FranchiseService {
 			return "The shop with id: " + idShop + "doesn't exist and it wasn't possible to add the painting";
 
 		} else {
-			Painting painting = mapPainting.mappingDTOToEntity(paintingDTO);
-			painting.setShop(shop);
-			paintingsRepository.save(painting);
-
-			return "Painting saved";
+			
+			boolean shopIsFull = (shop.getPaintingsList().size() >= shop.getCapacity());
+			
+			if (shopIsFull) {
+				
+				return "The Shop is full";
+				
+				
+			}else {
+				
+				Painting painting = mapPainting.mappingDTOToEntity(paintingDTO);
+				painting.setShop(shop);
+				paintingsRepository.save(painting);
+	
+				return "Painting saved";	
+			}
+			
 		}
 
 	}
