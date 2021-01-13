@@ -22,6 +22,7 @@ import com.application.service.*;
  */
 
 @RestController
+@RequestMapping("/api")
 public class FranchiseController {
 	
 	@Autowired

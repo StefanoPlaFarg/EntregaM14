@@ -19,11 +19,12 @@ import com.application.repository.*;
 @Service
 public class FranchiseService {
 
-	@Autowired
-	private PaintingsRepository paintingsRepository;
-
+	
 	@Autowired
 	private ShopsRepository shopsRepository;
+	
+	@Autowired
+	private PaintingsRepository paintingsRepository;
 
 	@Autowired
 	private MapShop mapShop;
@@ -39,7 +40,6 @@ public class FranchiseService {
 		shopsRepository.save(shop);
 
 		return "Shop saved";
-
 	}
 
 	public ShopDTO getShopById(long idShop) {
@@ -62,10 +62,10 @@ public class FranchiseService {
 
 		else {
 
-			Shop shopUpdated = mapShop.mappingDTOToEntity(shopDTO);
+			shopToUpdate.setCapacity(shopDTO.getCapacity());
+			shopToUpdate.setName(shopDTO.getName());
 
-			shopToUpdate.setName(shopUpdated.getName());
-			shopToUpdate.setCapacity(shopUpdated.getCapacity());
+			shopsRepository.save(shopToUpdate);
 
 			return "Shop updated";
 		}
