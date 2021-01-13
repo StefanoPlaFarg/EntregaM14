@@ -136,7 +136,7 @@ public class FranchiseService {
 			painting.setShop(shop);
 			paintingsRepository.save(painting);
 
-			return "Painting has been saved";
+			return "Painting saved";
 		}
 
 	}
@@ -158,13 +158,13 @@ public class FranchiseService {
 
 			} else {
 
-				Painting paintingUpdated = mapPainting.mappingDTOToEntity(paintingDTO);
+				paintingToUpdate.setAuthorName(paintingDTO.getAuthorName());
+				paintingToUpdate.setPaintingName(paintingDTO.getPaintingName());
+				paintingToUpdate.setPrice(paintingDTO.getPrice());
 
-				paintingToUpdate.setAuthorName(paintingUpdated.getAuthorName());
-				paintingToUpdate.setPaintingName(paintingUpdated.getPaintingName());
-				paintingToUpdate.setPrice(paintingUpdated.getPrice());
+				paintingsRepository.save(paintingToUpdate);
 
-				return "Painting has been updated";
+				return "Painting  updated";
 			}
 		}
 
