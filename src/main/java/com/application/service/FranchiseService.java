@@ -115,8 +115,9 @@ public class FranchiseService {
 	}
 
 	public String deleteAllShops() {
-		shopsRepository.deleteAll();
 		paintingsRepository.deleteAll();
+		shopsRepository.deleteAll();
+		
 
 		return "Shops and paintings deleted";
 
