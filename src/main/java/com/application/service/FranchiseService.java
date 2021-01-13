@@ -166,17 +166,31 @@ public class FranchiseService {
 			Painting paintingToUpdate = paintingsRepository.findById(idPainting);
 
 			if (paintingToUpdate == null) {
-				return "The painting with id:" + idPainting + "doesn't exist and it wasn't possible to update it";
+
+				return "The painting with id:" + idPainting
+						+ "doesn't exist in the Franchise and it wasn't possible to update it";
 
 			} else {
 
-				paintingToUpdate.setAuthorName(paintingDTO.getAuthorName());
-				paintingToUpdate.setPaintingName(paintingDTO.getPaintingName());
-				paintingToUpdate.setPrice(paintingDTO.getPrice());
+				boolean idEquals = (idShop == paintingToUpdate.getShop().getId());
 
-				paintingsRepository.save(paintingToUpdate);
+				if (!idEquals) {
 
-				return "Painting  updated";
+					return "The painting with id:" + idPainting
+							+ "doesn't belong to this Shop and it wasn't possible to update it";
+
+				} else {
+
+					paintingToUpdate.setAuthorName(paintingDTO.getAuthorName());
+					paintingToUpdate.setPaintingName(paintingDTO.getPaintingName());
+					paintingToUpdate.setPrice(paintingDTO.getPrice());
+
+					paintingsRepository.save(paintingToUpdate);
+
+					return "Painting  updated";
+
+				}
+
 			}
 		}
 
@@ -196,11 +210,20 @@ public class FranchiseService {
 
 			if (painting == null) {
 				return null;
+
 			} else {
 
-				PaintingDTO paintingDTO = mapPainting.mappingEntityToDTO(painting);
+				boolean idEquals = (idShop == painting.getShop().getId());
+				if (!idEquals) {
 
-				return paintingDTO;
+					return null;
+				} else {
+
+					PaintingDTO paintingDTO = mapPainting.mappingEntityToDTO(painting);
+
+					return paintingDTO;
+				}
+
 			}
 
 		}
@@ -225,9 +248,20 @@ public class FranchiseService {
 
 			} else {
 
-				paintingsRepository.deleteById(idPainting);
+				boolean idEquals = (idShop == painting.getShop().getId());
 
-				return "Painting deleted";
+				if (!idEquals) {
+
+					return "The painting with id: " + idPainting
+							+ "doesn't belong to this Shop and it wasn't possible to delete it";
+
+				} else {
+
+					paintingsRepository.deleteById(idPainting);
+
+					return "Painting deleted";
+
+				}
 
 			}
 
@@ -262,14 +296,11 @@ public class FranchiseService {
 
 			}
 
-			
-
 			return paintingsListOfShop;
 
 		}
 
 	}
-	
 	
 	
 	/**
