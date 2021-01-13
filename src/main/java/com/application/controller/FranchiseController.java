@@ -140,7 +140,7 @@ public class FranchiseController {
 	
 	// http://localhost:8080/api/GET/shops/idShop/paintings (DELETE) -> DELETE all Paintings of a Shop
 	// Paintings of a Shop
-	@RequestMapping(path = "GET/shops/{idShop}/paintings", method = RequestMethod.DELETE, produces = "application/json")
+	@RequestMapping(path = "DELETE/shops/{idShop}/paintings", method = RequestMethod.DELETE, produces = "application/json")
 	@ResponseBody
 	public String deleteAllPaintingsofShop(@PathVariable("idShop") long idShop) {
 		String message = franchiseService.deleteAllPaintingsOfShop(idShop);
