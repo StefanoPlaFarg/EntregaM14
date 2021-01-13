@@ -94,7 +94,7 @@ public class FranchiseController {
 	
 	
 	// http://localhost:8080/api/GET/shops/idShop/paintings/idPainting (GET) -> GET Painting by idShop and idPainting
-	@RequestMapping(path = "GET/shops/{idShop}/paintings/{idShop}", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(path = "GET/shops/{idShop}/paintings/{idPainting}", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
 	public PaintingDTO getPaintingById(@PathVariable("idShop") long idShop,@PathVariable("idPainting") long idPainting) {
 		return franchiseService.getPaintingById(idShop, idPainting);
