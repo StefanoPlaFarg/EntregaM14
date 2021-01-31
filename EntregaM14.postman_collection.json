@@ -1,0 +1,394 @@
+{
+	"info": {
+		"_postman_id": "2ea6a7db-5567-4bc2-8bda-adc50cdef506",
+		"name": "EntregaM14",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "TEST",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"test"
+					]
+				},
+				"description": "Comprovem que el servei funciona"
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE_NewShop",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"BotigaBarcelona\",\r\n    \"capacity\": 30  \r\n  \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/POST/shops",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"POST",
+						"shops"
+					]
+				},
+				"description": "Creem un nou Shop\r\n\r\nNota: per crear-lo, s'ha de crear un JSON al Body de la Request amb la següent estructura:\r\n\r\n{\r\n    \"name\": \"BotigaMadrid\",\r\n    \"capacity\": 50   \r\n  \r\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "GET_ShopById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/GET/shops/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"GET",
+						"shops",
+						"2"
+					]
+				},
+				"description": "Retorna un Shop a partir de l'Id especificat en format JSON"
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE_ShopById",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"BotigaLleida\",\r\n    \"capacity\": 20\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/PUT/shops/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"PUT",
+						"shops",
+						"1"
+					]
+				},
+				"description": "Actualitza un Shop a partir de l'ID especificat a l'URL\r\n\r\nNota: s'ha d'indicar l'Id a l'URL i s'ha d'adjuntar un JSON al Body de la Request de l'estil:\r\n\r\n{\r\n    \"name\": \"BotigaTarragona\",\r\n    \"capacity\": 100\r\n  \r\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE_ShopById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/DELETE/shops/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"DELETE",
+						"shops",
+						"2"
+					]
+				},
+				"description": "Borrem un Shop a partir de l'Id de l'URL"
+			},
+			"response": []
+		},
+		{
+			"name": "GET_AllShops",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/GET/shops",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"GET",
+						"shops"
+					]
+				},
+				"description": "Retorna tots els Shops en format JSON\r\n\r\nFormat:\r\n[ { \"name\": \"BotigaTarragona\", \"capacity\": 100  },  { \"name\": \"BotigaLleida\",  \"capacity\": 40  }]"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE_AllShops",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/DELETE/shops",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"DELETE",
+						"shops"
+					]
+				},
+				"description": "Borrem tots els Shops de Franchise"
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE_NewPainting",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"authorName\": \"Velazquez\",    \r\n    \"price\": 5000  ,\r\n    \"paintingName\": \"Parajes\"\r\n\r\n  \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/POST/shops/2/paintings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"POST",
+						"shops",
+						"2",
+						"paintings"
+					]
+				},
+				"description": "Creem un nou Shop\r\n\r\nNota: per crear-lo, s'ha de crear un JSON al Body de la Request amb la següent estructura:\r\n\r\n{\r\n    \"authorName\": \"Dali\",    \r\n    \"price\": 10000  ,\r\n    \"paintingName\": \"Rellotges\"\r\n\r\n  \r\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "GET_PaintingById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/GET/shops/2/paintings/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"GET",
+						"shops",
+						"2",
+						"paintings",
+						"3"
+					]
+				},
+				"description": "Retorna un Painting a partir de l'IdShop i IdPainting especificats a l'URL en format JSON\r\n{ \"authorName\": \"Dali\",\r\n\"price\": 10000 , \"paintingName\": \"Rellotges\"\r\n\r\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE_Painting ById",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"authorName\": \"Velazquez\", \"price\": 500 , \"paintingName\": \"Paisajes\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/PUT/shops/1/paintings/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"PUT",
+						"shops",
+						"1",
+						"paintings",
+						"4"
+					]
+				},
+				"description": "Actualitza un Painting a partir de l'IDShop i IdPainting especificat a l'URL\r\n\r\nNota: s'ha d'indicar l'Id a l'URL i s'ha d'adjuntar un JSON al Body de la Request de l'estil:\r\n\r\n\r\n   { \"authorName\": \"Dali\",\r\n\"price\": 10000 , \"paintingName\": \"Rellotges\"}"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE_PaintingById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/DELETE/shops/2/paintings/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"DELETE",
+						"shops",
+						"2",
+						"paintings",
+						"4"
+					]
+				},
+				"description": "Borrem un Painting a partir de l'IdShop i l'IdPainting de l'URL"
+			},
+			"response": []
+		},
+		{
+			"name": "GET_AllPaitningsOfShops",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/GET/shops/2/paintings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"GET",
+						"shops",
+						"2",
+						"paintings"
+					]
+				},
+				"description": "Retorna tots els Paintings d'un Shop a partir de l'IdShop en format JSON\r\n\r\nFormat:\r\n[ { \"authorName\": \"Dali\",\r\n\"price\": 10000 , \"paintingName\": \"Rellotges\"\r\n\r\n},  { \"authorName\": \"Sorolla\",\r\n\"price\": 40000 , \"paintingName\": \"Parajes\"\r\n\r\n}]"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE_AllPaintingsOfShops",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/DELETE/shops/2/paintings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"DELETE",
+						"shops",
+						"2",
+						"paintings"
+					]
+				},
+				"description": "Borrem tots els Paintings d'un Shop a partir de l'idShop especificat a l'URl"
+			},
+			"response": []
+		},
+		{
+			"name": "GET_AllPaitnings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/GET/shops/paintings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"GET",
+						"shops",
+						"paintings"
+					]
+				},
+				"description": "Retorna tots els Paintings de la Franchise en format JSON\r\n\r\nFormat (en cas d'exisitir només un Shop):\r\n[ { \"authorName\": \"Dali\",\r\n\"price\": 10000 , \"paintingName\": \"Rellotges\"\r\n\r\n},  { \"authorName\": \"Sorolla\",\r\n\"price\": 40000 , \"paintingName\": \"Parajes\"\r\n\r\n}]"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE_AllPaintings",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/DELETE/shops/paintings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"DELETE",
+						"shops",
+						"paintings"
+					]
+				},
+				"description": "Borrem tots els Paintings d'un Shop a partir de l'idShop especificat a l'URl"
+			},
+			"response": []
+		}
+	]
+}
