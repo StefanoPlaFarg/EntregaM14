@@ -17,7 +17,7 @@ entregam14franchise. L'usuari i el password s'hauran d'intorudir a l'arxiu appli
 -Password: 
 -URL: jdbc:h2:mem:testdb
 
-* Useu la col·lecció Postman per testejar l'API
+* Useu la col·lecció Postman per testejar l'API.( Demanar i l'envio ja que no es pot pujar a Github)
 
 ### Nivell 1
 * Fase 1 -> Branca master (MySQL)
