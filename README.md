@@ -2,7 +2,7 @@
 Entrega M14 sobre Spring Boot i Spring Data
 
 ## Descripció
-* S'ha desenvolupat fins el nivell 1.
+* S'ha desenvolupat fins al nivell 1.
 * Per desenvolupar el projecte s'ha basat en Spring Initializr (https://start.spring.io/) ja que el projecte descarregat de l'enllaÇ https://github.com/IT-Academy-BCN/springBootInitialDemo donava problemes al compilar.
 * Utilitzar la col.lecció de Postman per testejar l'API: EntregaM14.postman_collection.json
 * Per la fase 1 , serà necessari instal·lar MySQL i crear una instancia amb un password i usuari determinat i crear una BBDD amb el nom
